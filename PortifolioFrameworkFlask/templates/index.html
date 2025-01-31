@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isabelle Rancan</title>
+    <link rel= "icon" href="static/img/sparkles.png">
+</head>
+<body>
+    {% include "navbar.html" %}
+
+    <section id="home">
+        <h1>Espaço para colocar minha apresentação</h1>
+        <p>Texto</p>
+    </section>
+   
+    <section id="flask">
+        <h1>Apresentação da matéria</h1>
+        <p>Texto</p>
+    </section>
+
+    <section id="lesson">
+        <h1>Calendário com todas as aulas etc...</h1>
+        <p>AULA 1 (00/00) --    </p><h2>Título da aula</h2>
+        <p>Texto</p>
+        <h3>Atividades</h3>
+
+        {% for activity in list01 %}
+
+        <a href="{{ activity.url }}" target="_blank">{{ activity.name }}</a><br>
+
+        {% endfor %}
+
+        <p>AULA 2 (00/00) --    </p><h2>Título da aula</h2>
+        <p>Texto</p>
+        <h3>Atividades</h3>
+
+        {% for activity in list02 %}
+
+        <a href="{{ activity.url }}" target="_blank">{{ activity.name }}</a><br>
+
+        {% endfor %}
+
+    </section>
+
+    <section id="project">
+        <h1>Project</h1>
+        <p>Texto</p>
+    </section>
+
+    <section id="contact">
+        <h1>Contact</h1>
+        <p>Texto</p>
+    </section>
+    
+    
+</body>
+</html>

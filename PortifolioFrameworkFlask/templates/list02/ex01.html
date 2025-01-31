@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Exercise 1</title>
+</head>
+<body>
+    <h1>Login</h1>
+
+    {% if error == "Maximum number of login attempts reached" %}
+        <p style="color: red;">{{ error }}</p>
+    {% else %}
+        <form method="POST">
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" required>
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" required>
+            <button type="submit">Send</button>
+        </form>
+
+        {% if error == "Incorrect username or password" %}
+            <p style="color: red;">{{ error }}</p>
+        {% else %}
+            <p style="color: green;">{{ message }}</p>
+        {% endif %}
+    {% endif %}
+
+</body>
+</html>
