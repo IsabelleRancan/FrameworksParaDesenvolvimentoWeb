@@ -7,7 +7,7 @@ def generate_form(directory, filename):
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Document</title>
+            <title>Exercise 2</title>
         </head>
         <body>
             
@@ -33,7 +33,6 @@ def generate_form(directory, filename):
 
     with open(filepath, 'w') as file:
         file.write(form)
-        print("Formulário criado com sucesso!")
 
 def process_json_to_list(json_data):
     result_list = []
