@@ -21,6 +21,7 @@
 
     <section id="lesson">
         <h1>Calendário com todas as aulas etc...</h1>
+
         <p>AULA 1 (00/00) --    </p><h2>Título da aula</h2>
         <p>Texto</p>
         <h3>Atividades</h3>
@@ -36,6 +37,16 @@
         <h3>Atividades</h3>
 
         {% for activity in list02 %}
+
+        <a href="{{ activity.url }}" target="_blank">{{ activity.name }}</a><br>
+
+        {% endfor %}
+
+        <p>AULA 3 (00/00) --    </p><h2>Título da aula</h2>
+        <p>Texto</p>
+        <h3>Atividades</h3>
+
+        {% for activity in list03 %}
 
         <a href="{{ activity.url }}" target="_blank">{{ activity.name }}</a><br>
 

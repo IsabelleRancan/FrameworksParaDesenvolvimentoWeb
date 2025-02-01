@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, session, j
 from .form import greeting_message, authenticate_user
 from .generate_form import generate_form, process_json_to_list
 from .authentication_user import User
+from .full_form import user_authenticate
 from datetime import timedelta
 import os
 
@@ -37,7 +38,11 @@ def index():
         {"name": "3 - Formulário com autenticação de usuário", "url": url_for("activity", activity_id="list02", activity_name="ex03")},
     ]
 
-    return render_template("index.html", list01=list01, list02=list02)
+    list03 = [
+        {"name": "1 - Formulário completo com dados mokados, autenticação, limitação de tentativas de login e tratar exceções.", "url": url_for("activity", activity_id="list03", activity_name="ex01")},
+    ]
+
+    return render_template("index.html", list01=list01, list02=list02, list03=list03)
 
 @app.route("/activity/<activity_id>/<activity_name>")
 def activity(activity_id, activity_name):
@@ -56,7 +61,7 @@ def login():
             session["login_attempts"] = 0
         session["login_attempts"] += 1
 
-        if session["login_attempts"] > 2:
+        if session["login_attempts"] >= 2:
             error = "Maximum number of login attempts reached"
         else: 
             username = request.form["username"]
@@ -109,3 +114,33 @@ def validation():
         return redirect(url_for("user_data", validator="Welcome"))  # Redireciona com sucesso
     except ValueError as e:
         return redirect(url_for("user_data", error=str(e)))  # Redireciona com erro
+
+@app.route("/activity/list03/ex01", methods=["GET", "POST"])
+def form_login():
+
+    if request.method == "GET":
+        session.pop("login_attempts", None)
+
+    error = None
+    message = None      
+    
+    if request.method == "POST":
+        if "login_attempts" not in session:
+            session["login_attempts"] = 0
+        session["login_attempts"] += 1
+
+        if session["login_attempts"] >= 2:
+            error = "Maximum number of login attempts reached"
+        else: 
+            username = request.form["username"]
+            password = request.form["password"]
+
+            result = user_authenticate(username, password)
+
+            if result == "Success":
+                session.pop("login_attempts", None)
+                message="Login successfully!!"
+            else:
+                error = result
+
+    return render_template("list03/ex01.html", error=error, message=message)
