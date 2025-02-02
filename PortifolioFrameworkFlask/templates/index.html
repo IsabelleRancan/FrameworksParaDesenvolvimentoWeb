@@ -52,6 +52,17 @@
 
         {% endfor %}
 
+        <p>AULA 4 (00/00) --    </p><h2>Título da aula</h2>
+        <p>Texto</p>
+        <h3>Atividades</h3>
+
+        {% for activity in list04 %}
+
+        <a href="{{ activity.url }}" target="_blank">{{ activity.name }}</a><br>
+
+        {% endfor %}
+
+
     </section>
 
     <section id="project">

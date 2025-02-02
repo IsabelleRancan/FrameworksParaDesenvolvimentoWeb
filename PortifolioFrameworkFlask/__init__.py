@@ -3,7 +3,7 @@ from .form import greeting_message, authenticate_user
 from .generate_form import generate_form, process_json_to_list
 from .authentication_user import User
 from .full_form import user_authenticate
-from datetime import timedelta
+from datetime import timedelta, datetime
 import os
 
 app = Flask(__name__)
@@ -41,8 +41,12 @@ def index():
     list03 = [
         {"name": "1 - Formulário completo com dados mokados, autenticação, limitação de tentativas de login e tratar exceções.", "url": url_for("activity", activity_id="list03", activity_name="ex01")},
     ]
+    
+    list04 = [
+        {"name": "1 - Mini Blog Pessoal", "url": url_for("activity", activity_id="list04", activity_name="ex01")},
+    ]
 
-    return render_template("index.html", list01=list01, list02=list02, list03=list03)
+    return render_template("index.html", list01=list01, list02=list02, list03=list03, list04=list04)
 
 @app.route("/activity/<activity_id>/<activity_name>")
 def activity(activity_id, activity_name):
@@ -144,3 +148,16 @@ def form_login():
                 error = result
 
     return render_template("list03/ex01.html", error=error, message=message)
+
+@app.route("/activity/list04/ex01/new_post", methods=["GET", "POST"])
+def new_post():
+    posts = []
+
+    if request.method == "POST":
+        text = request.form["text"]
+        date = datetime.now()
+        time = datetime.now()
+
+        posts.append({"text": text, "date": date, "time": time})
+        return render_template("list04/ex01.html", posts=posts)
+    return render_template("list04/ex01_new_post.html")
