@@ -5,11 +5,15 @@ from .authentication_user import User
 from .full_form import user_authenticate
 from datetime import timedelta, datetime
 from .upload_pictures import allowed_files, save_file
+from .basic_authentication_page import Create_User
 import os
 
 app = Flask(__name__)
 app.secret_key = "840d5791054e889b8ab0cdf7b14190ea"
 app.config["UPLOAD_FOLDER"] = "/static/img/upload_pictures"
+
+if not os.path.exists(app.config["UPLOAD_FOLDER"]):
+    os.makedirs(app.config["UPLOAD_FOLDER"])
 
 def generate_html_if_needed():
     base_path = os.path.dirname(os.path.abspath(__file__))
@@ -93,8 +97,8 @@ def processing():
 
 @app.route("/activity/list02/ex03", methods=["GET", "POST"])
 def user_data():
-    error = request.args.get("error", None)  # Pegando erro da URL, se existir
-    validator = request.args.get("validator", None)  # Pegando validação bem-sucedida
+    error = request.args.get("error", None) 
+    validator = request.args.get("validator", None) 
     
     if request.method == "POST":
         name = request.form["name"]
@@ -105,9 +109,9 @@ def user_data():
 
         try: 
             User(name, lastname, age, email, password)
-            return redirect(url_for("user_data", error="Welcome to login"))  # Redireciona corretamente
+            return redirect(url_for("user_data", error="Welcome to login")) 
         except ValueError as e:
-            return redirect(url_for("user_data", error=str(e)))  # Redireciona com erro
+            return redirect(url_for("user_data", error=str(e))) 
     
     return render_template("list02/ex03.html", error=error, validator=validator)
 
@@ -119,9 +123,9 @@ def validation():
 
     try: 
         User.login_user(email, password)
-        return redirect(url_for("user_data", validator="Welcome"))  # Redireciona com sucesso
+        return redirect(url_for("user_data", validator="Welcome"))  
     except ValueError as e:
-        return redirect(url_for("user_data", error=str(e)))  # Redireciona com erro
+        return redirect(url_for("user_data", error=str(e))) 
 
 @app.route("/activity/list03/ex01", methods=["GET", "POST"])
 def form_login():
@@ -170,19 +174,51 @@ def new_post():
 @app.route("/activity/list04/ex03/upload_pictures", methods=["GET", "POST"])
 def pictures():
     message = None 
+    filepath = None
 
     if request.method == "POST": 
         if "file" not in request.files:
-            return render_template("ex03.html", message="No file part")
+            return render_template("list04/ex03.html", message="No file part", filepath=filepath)
         
         file = request.files["file"]
         if file.filename == "":
-            return render_template("ex03.html", message="No selected file")
+            return render_template("list04/ex03.html", message="No selected file", filepath=filepath)
         
         filepath = save_file(file)
         if filepath: 
-            return render_template("ex03.html", message="Success", filepath=filepath)
+            return render_template("list04/ex03.html", message="Success", filepath=filepath)
         else:
-            return render_template("ex03.html", message="Invalid file format")
+            return render_template("list04/ex03.html", message="Invalid file format", filepath=filepath)
         
-    return render_template("ex03.html")
+    return render_template("list04/ex03.html")
+
+@app.route("/activity/list04/ex03/create_account", methods=["GET", "POST"])
+def create_account():
+    error = None  
+    
+    if request.method == "POST":
+        name = request.form["name"]
+        lastname = request.form["lastname"]
+        age = int(request.form["age"])
+        email = request.form["email"]
+        password = request.form["password"]
+
+        try: 
+            Create_User(name, lastname, age, email, password)
+            return render_template("ex02_login.html")
+        except ValueError as e:
+            return redirect(url_for("user_data", error=str(e)))  # Redireciona com erro
+    
+    return render_template("list02/ex03.html", error=error, validator=validator)
+
+
+@app.route("/activity/list02/ex03-validation", methods=["POST"])
+def validation():
+    email = request.form["email"]
+    password = request.form["password"]
+
+    try: 
+        User.login_user(email, password)
+        return redirect(url_for("user_data", validator="Welcome"))  # Redireciona com sucesso
+    except ValueError as e:
+        return redirect(url_for("user_data", error=str(e)))  # Redireciona com erro
