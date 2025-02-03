@@ -149,14 +149,15 @@ def form_login():
 
     return render_template("list03/ex01.html", error=error, message=message)
 
+posts = []
 @app.route("/activity/list04/ex01/new_post", methods=["GET", "POST"])
 def new_post():
-    posts = []
+    global posts
 
     if request.method == "POST":
         text = request.form["text"]
-        date = datetime.now()
-        time = datetime.now()
+        date = datetime.now().strftime("%d/%m/%y")
+        time = datetime.now().strftime("%H:%M")
 
         posts.append({"text": text, "date": date, "time": time})
         return render_template("list04/ex01.html", posts=posts)
