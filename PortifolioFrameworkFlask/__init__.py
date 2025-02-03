@@ -4,10 +4,12 @@ from .generate_form import generate_form, process_json_to_list
 from .authentication_user import User
 from .full_form import user_authenticate
 from datetime import timedelta, datetime
+from .upload_pictures import allowed_files, save_file
 import os
 
 app = Flask(__name__)
 app.secret_key = "840d5791054e889b8ab0cdf7b14190ea"
+app.config["UPLOAD_FOLDER"] = "/static/img/upload_pictures"
 
 def generate_html_if_needed():
     base_path = os.path.dirname(os.path.abspath(__file__))
@@ -44,6 +46,8 @@ def index():
     
     list04 = [
         {"name": "1 - Mini Blog Pessoal", "url": url_for("activity", activity_id="list04", activity_name="ex01")},
+        {"name": "2 - Página de autenticação básica", "url": url_for("activity", activity_id="list04", activity_name="ex02")},
+        {"name": "3 - Página de upload de fotos", "url": url_for("activity", activity_id="list04", activity_name="ex03")},
     ]
 
     return render_template("index.html", list01=list01, list02=list02, list03=list03, list04=list04)
@@ -162,3 +166,23 @@ def new_post():
         posts.append({"text": text, "date": date, "time": time})
         return render_template("list04/ex01.html", posts=posts)
     return render_template("list04/ex01_new_post.html")
+
+@app.route("/activity/list04/ex03/upload_pictures", methods=["GET", "POST"])
+def pictures():
+    message = None 
+
+    if request.method == "POST": 
+        if "file" not in request.files:
+            return render_template("ex03.html", message="No file part")
+        
+        file = request.files["file"]
+        if file.filename == "":
+            return render_template("ex03.html", message="No selected file")
+        
+        filepath = save_file(file)
+        if filepath: 
+            return render_template("ex03.html", message="Success", filepath=filepath)
+        else:
+            return render_template("ex03.html", message="Invalid file format")
+        
+    return render_template("ex03.html")

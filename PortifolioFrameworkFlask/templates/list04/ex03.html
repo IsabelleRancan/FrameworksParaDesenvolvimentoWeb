@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Pictures</title>
+</head>
+<body>
+
+    <h1>Upload Pictures</h1>
+
+    <!-- Mensagem de erro ou sucesso -->
+    {% if 'success' in message %}
+        <p style="color: green">
+            {{ message }}
+        </p>
+    {% else %}
+    <p style="color: red">
+        {{ message }}
+    </p>
+    {% endif %}
+
+    <!-- Formulário de upload -->
+    <form action="/activity/list04/ex03/upload_pictures" method="POST" enctype="multipart/form-data">
+        <label for="file">Choose a file:</label>
+        <input type="file" name="file" id="file" required>
+        <button type="submit">Sand</button>
+    </form>
+
+</body>
+</html>
