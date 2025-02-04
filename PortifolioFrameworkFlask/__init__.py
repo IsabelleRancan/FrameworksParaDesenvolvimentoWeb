@@ -192,7 +192,7 @@ def pictures():
         
     return render_template("list04/ex03.html")
 
-@app.route("/activity/list04/ex03/create_account", methods=["GET", "POST"])
+@app.route("/activity/list04/ex02/create_account", methods=["GET", "POST"])
 def create_account():
     error = None  
     
@@ -205,20 +205,19 @@ def create_account():
 
         try: 
             Create_User(name, lastname, age, email, password)
-            return render_template("ex02_login.html")
+            return render_template("list04/ex02_login.html")
         except ValueError as e:
-            return redirect(url_for("user_data", error=str(e)))  # Redireciona com erro
+            return redirect(url_for("user_data", error=str(e)))
     
-    return render_template("list02/ex03.html", error=error, validator=validator)
+    return render_template("list04/ex02.html", error=error)
 
-
-@app.route("/activity/list02/ex03-validation", methods=["POST"])
-def validation():
+@app.route("/activity/list04/ex02_login", methods=["POST"])
+def user_login():
     email = request.form["email"]
     password = request.form["password"]
 
     try: 
-        User.login_user(email, password)
-        return redirect(url_for("user_data", validator="Welcome"))  # Redireciona com sucesso
+        Create_User.login_users(email, password)
+        return render_template("list04/ex02_login.html", validator="Welcome")
     except ValueError as e:
-        return redirect(url_for("user_data", error=str(e)))  # Redireciona com erro
+        return render_template("list04/ex02_login.html", error=str(e))
