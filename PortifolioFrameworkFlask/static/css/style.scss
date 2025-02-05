@@ -109,29 +109,35 @@ body {
 
     #ClassCalendar {
         display: grid;
-        grid-template-columns: 15% 20% 65%;
-        align-items: start;
+        grid-template-columns: 20% 20% 60%;
+        align-items: center;
+        //justify-items: center;
         padding-left: 20px;
         padding-right: 20px;
 
         h1{
             font-size: 40px;
+            grid-column: 1 /span 3;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
 
         }
 
         h4 {
           grid-column: 1; // Garantindo que apenas h4 fique na primeira coluna
+          display: flex;
+          justify-content: end;
         }
       
         .decorative-line {
             grid-column: 2;
             width: 80%;
             height: 2px;
-            margin-top: 12px;
             background-color: $font-color; // Cor do traço (altere conforme necessário)
           }
       
-        > *:not(h4):not(.decorative-line) {
+        > *:not(h4, h1):not(.decorative-line) {
           grid-column: 3; // Todo o resto vai para a terceira coluna
         }
 
