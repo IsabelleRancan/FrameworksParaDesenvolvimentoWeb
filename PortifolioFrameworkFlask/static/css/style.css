@@ -74,6 +74,11 @@ body #home .right p {
 body #flask {
   height: 700px;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 body #flask h1 {
   font-size: 40px;
@@ -82,4 +87,30 @@ body #flask h1 {
 body #flask p {
   font-size: 20px;
   margin: 5px;
+}
+body #ClassCalendar {
+  display: grid;
+  grid-template-columns: 15% 20% 65%;
+  align-items: start;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+body #ClassCalendar h1 {
+  font-size: 40px;
+}
+body #ClassCalendar h4 {
+  grid-column: 1;
+}
+body #ClassCalendar .decorative-line {
+  grid-column: 2;
+  width: 80%;
+  height: 2px;
+  margin-top: 12px;
+  background-color: #FAFAFA;
+}
+body #ClassCalendar > *:not(h4):not(.decorative-line) {
+  grid-column: 3;
+}
+body #ClassCalendar ol, body #ClassCalendar ul {
+  padding-left: 3rem;
 }/*# sourceMappingURL=style.css.map */
