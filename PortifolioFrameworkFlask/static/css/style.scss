@@ -4,48 +4,45 @@ $second-color: #2C2A32;
 $third-color: #159656;
 $font-color: #FAFAFA;
 
-*{
+* {
     font-family: $font-stack;
     background-color: $second-color;
     color: $font-color;
     margin: 0;
-    padding: 0; 
+    padding: 0;
     box-sizing: border-box;
-    text-decoration: none; 
-    //display: flex;
+    text-decoration: none;
 }
 
-header{
-    nav{
-        display: flex;
-        justify-content: space-between;
+header {
+    nav {
+        display: grid;
+        grid-template-columns: 550px auto;
         align-items: center;
-    
-        .left-side-nav{
+
+        .left-side-nav {
             background-color: $third-color;
-            width: 550px;
             height: 60px;
             padding: 10px 20px;
             display: flex;
             align-items: center;
 
-            a{
+            a {
                 background-color: $third-color;
                 font-size: 23px;
             }
         }
 
-        .right-side-nav{
-            width: 980px;
+        .right-side-nav {
             height: 60px;
             background-color: $primary-color;
             padding: 17px 20px;
             display: flex;
-            padding-left: 550px;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 30px;
 
-            a{
-                gap: 15px;
-                margin-left: 30px;
+            a {
                 background-color: $primary-color;
                 font-size: 16px;
             }
@@ -53,26 +50,55 @@ header{
     }
 }
 
-body{
-    #home{
-        height: 650px;
-        display: flex;
+body {
+    #home {
+        height: 640px;
+        display: grid;
+        grid-template-columns: 550px auto;
         align-items: center;
-        justify-content: center;
-        h1{
-            //background-color: $third-color;
-            //height: 650px;
-            width: 550px;
+
+        .left {
+            background-color: $third-color;
+            display: flex;
+            height: 100%;
             padding: 20px;
-            font-size: 50px;
+            justify-content: center;
+            align-items: center;
             text-align: center;
+
+            h1 {
+                background-color: $third-color;
+                font-size: 50px;
+            }
+        }
+
+        .right {
+            background-color: $primary-color;
+            display: flex;
+            height: 100%;
+            padding: 20px;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+
+            p {
+                background-color: $primary-color;
+                font-size: 20px;
+                width: 550px;
+            }
+        }
+    }
+    #flask {
+        height: 700px;
+        padding: 20px;
+
+        h1{
+            font-size: 40px;
+            margin-bottom: 30px;
         }
         p{
-            width: 980px;
+            font-size: 20px;
+            margin: 5px;
         }
     }
-    h1{
-        font-size: 35px;
-    }
 }
-
