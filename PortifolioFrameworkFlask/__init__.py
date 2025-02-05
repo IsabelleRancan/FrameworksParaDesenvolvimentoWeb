@@ -31,27 +31,27 @@ generate_html_if_needed()
 @app.route("/")
 def index():
     list01 = [
-        {"name": "1 - Crie uma rota para uma página web com a tag canvas que permite ao usuário deslocar uma fotografia para a direita e esquerda com as setinhas do teclado.", "url": url_for("activity", activity_id="list01", activity_name="ex01")},
-        {"name": "2 - Crie uma rota que permita ao usuário capturar uma fotografia pela webcam e mostrar na tela.", "url": url_for("activity", activity_id="list01", activity_name="ex02")},
-        {"name": "3 - Crie uma rota que exiba uma tabela (sem usar table) com 997 linhas e 5 colunas: nas colunas id, nome, sobre nome, email, ações", "url": url_for("activity", activity_id="list01", activity_name="ex03")},
-        {"name": "4 - Criar uma rota com 3 links, um para cada uma das atividades anteriores, porém todas elas bonitas", "url": url_for("activity", activity_id="list01", activity_name="ex04")},
-        {"name": "5 - Criar rotas contendo o curriculo de cada um dos integrantes do grupo (estilizado).", "url": url_for("activity", activity_id="list01", activity_name="ex05")},
+        {"name": "1.	Create a route for a web page containing a <canvas> tag that allows users to move an image left and right using the keyboard arrow keys.", "url": url_for("activity", activity_id="list01", activity_name="ex01")},
+        {"name": "2.	Create a route for Activity 2 that allows the user to capture an image using the webcam and display it on the screen.", "url": url_for("activity", activity_id="list01", activity_name="ex02")},
+        {"name": "3.	Create a route for Activity 3 that displays a table (without using <table>) containing 997 rows and 5 columns (id, first name, last name, email, actions).", "url": url_for("activity", activity_id="list01", activity_name="ex03")},
+        {"name": "4.	Create a route with 3 links, each leading to one of the previous activities, ensuring they all have a beautiful design.", "url": url_for("activity", activity_id="list01", activity_name="ex04")},
+        {"name": "5.	Create 6 routes, each styled and well-designed, with each route containing the resume of a different group member.", "url": url_for("activity", activity_id="list01", activity_name="ex05")},
     ]
 
     list02 = [
-        {"name": "1 - Considerando um usuário e uma senha mocados (dados fictícios) faça uma página de autenticação que retorne uma mensagem caso a autenticação funcionar (bom dia, tarde, noite a depender do horário), se não, diz que o login não bateu.", "url": url_for("activity", activity_id="list02", activity_name="ex01")},
-        {"name": "2 - Gerando um arquivo html com um formulário de forma automática", "url": url_for("activity", activity_id="list02", activity_name="ex02")},
-        {"name": "3 - Formulário com autenticação de usuário", "url": url_for("activity", activity_id="list02", activity_name="ex03")},
+        {"name": "1.	Create an authentication page considering a mock username and password. The page should return a personalized message depending on the time of day, limit the login attempts to a maximum of 2 attempts, and style the login page to be visually appealing.", "url": url_for("activity", activity_id="list02", activity_name="ex01")},
+        {"name": "2.	Write a Python script that automatically generates an HTML template containing a form for data input with fields that will be received via JSON. Build an automatic route to allow viewing it.", "url": url_for("activity", activity_id="list02", activity_name="ex02")},
+        {"name": "3.	Create a Python class to encapsulate user data.  Develop an authentication function that validates user credentials and create a session to store and authenticate the user.", "url": url_for("activity", activity_id="list02", activity_name="ex03")},
     ]
 
     list03 = [
-        {"name": "1 - Formulário completo com dados mokados, autenticação, limitação de tentativas de login e tratar exceções.", "url": url_for("activity", activity_id="list03", activity_name="ex01")},
+        {"name": "1.	Complete form with mock data, authentication, login attempt limitation, and exception handling.", "url": url_for("activity", activity_id="list03", activity_name="ex01")},
     ]
     
     list04 = [
-        {"name": "1 - Mini Blog Pessoal", "url": url_for("activity", activity_id="list04", activity_name="ex01")},
-        {"name": "2 - Página de autenticação básica", "url": url_for("activity", activity_id="list04", activity_name="ex02")},
-        {"name": "3 - Página de upload de fotos", "url": url_for("activity", activity_id="list04", activity_name="ex03")},
+        {"name": "1.	Personal mini-blog.", "url": url_for("activity", activity_id="list04", activity_name="ex01")},
+        {"name": "2.	Basic authentication page.", "url": url_for("activity", activity_id="list04", activity_name="ex02")},
+        {"name": "3.	Photo upload page.", "url": url_for("activity", activity_id="list04", activity_name="ex03")},
     ]
 
     return render_template("index.html", list01=list01, list02=list02, list03=list03, list04=list04)

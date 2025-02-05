@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,57 +10,204 @@
     {% include "navbar.html" %}
 
     <section id="home">
-        <h1>Espaço para colocar minha apresentação</h1>
-        <p>Texto</p>
+        <h1>Hello, it's great to have you here!</h1>
+        <p>My name is Isabelle, and I am a Systems Analysis and Development student. I created this portfolio to showcase my knowledge of the Flask framework! I hope you like it ✨</p>
     </section>
    
     <section id="flask">
-        <h1>Apresentação da matéria</h1>
-        <p>Texto</p>
+        <h1>✨ About the Framework</h1>
+        <p>This entire project was developed as part of the assessment for the Web Development Frameworks course, taught by Professor Alex Araújo. Here, you will find all the activities and course content.</p>
+        <p>In this subject, we use Python as the programming language and Flask as the framework, along with the SQLAlchemy ORM and some JavaScript resources.</p>
     </section>
 
-    <section id="lesson">
-        <h1>Calendário com todas as aulas etc...</h1>
+    <section id="ClassCalendar">
+        <h1>Class Calendar 📅</h1>
 
-        <p>AULA 1 (00/00) --    </p><h2>Título da aula</h2>
-        <p>Texto</p>
-        <h3>Atividades</h3>
+        <h4>CLASS 01 (10/09) --    </h4><h2>Notes And Assessment Methods</h2>
+        <p>Assessment:</p>
+        <ol>
+            <li>Live Coding Test (We will receive the exam 48 hours in advance) - (12/11 and 12/18) (date changed later)</li>
+            <li>Portfolio Submission (02/12)</li>
+            <li>Practical Application with Requirements (01/22)</li>
+        </ol>
+        <p>The last activity must include:</p>
+        <ul>
+            <li>At least one developed API;</li>
+            <li>A documented endpoint with input and output parameters;</li>
+            <li>Clean code;</li>
+            <li>Fully functional;</li>
+            <li>Necessary validations for data input, errors, etc.;</li>
+            <li>Bonus: If the application is elastic or scalable;</li>
+            <li>Integration with a database;</li>
+            <li>Tests will be conducted based on our project documentation.</li>
+        </ul>
+        <p>Notes for the next class:</p>
+        <ul>
+            <li>Create a Python virtual environment using venv;</li>
+            <li>Know how to install Python packages (we will install packages for use in class);</li>
+            <li>Requirements file: A dependency file to replicate the virtual environment. It is a TXT file listing the dependencies we use + their versions (similar to package.json);</li>
+            <li>Python 3.11 must be installed on the machine;</li>
+            <li>Know how to use Linux!</li>
+        </ul>
+        <p>Best Practices:</p>
+        <ul>
+            <li>Never place code inside the virtual environment folder;</li>
+            <li>Applications should be web-based, not local.</li>
+        </ul>
+
+        <h4>CLASS 02 (10/16) --    </h4><h2>Group Division And Topic Assignment</h2>
+        <ol>
+            <li>Attendance System Using Camera</li>
+            <li>Emotion Analysis in Images</li>
+            <li>Document Scanner for PDF</li>
+        </ol>
+
+        <h4>CLASS 03 (10/23) --    </h4><h2>Creating A Virtual Environment In Python On Windows</h2>
+        <p>Step-by-step:</p>
+        <p>Creating the environment inside the VSCode terminal: <code>python -m venv environment_name </code></p>
+        <p>Allow virtual environments in PowerShell (only needed once): <br>
+            <code>Get-ExecutionPolicy</code>  <br>
+            <code>Set-ExecutionPolicy RemoteSigned -Scope CurrentUser</code>  
+        </p>
+        <p>Activating the environment: <code>environment_name\Scripts\activate</code></p>
+        <p>Accessing venv after creation:</p>
+        <p>Navigating to the project folder: <code>cd D:\User Documents\Documents\GitHub\FrameworksDesenvolvimentoWeb\projeto01</code> </p>
+        <p>Activating: <code>environment1.venv\Scripts\activate</code></p>
+        <p>Deactivating: <code>Deactivate</code></p>
+        <p>Installing dependencies: <code>pip install package_name</code></p>
+        <p>Listing all installed packages: <code>pip list</code></p>
+        <p><b>Packages installed in the first lesson:</b></p>
+        <ul>
+            <li>flask</li>
+            <li>flask sqlalchemy</li>
+            <li>numpy</li>
+        </ul>
+        <p><b>Note: </b>NumPy is used for manipulating arrays, matrices, etc., and is faster than loops.</p>
+        <p><b>PyPI: </b>a website that allows searching for packages and provides installation instructions.</p>
+        <p><b>IMPORTANT: </b>Always install and run libraries inside the virtual environment.</p>
+        <p>Used progress bar and time functions.</p>
+        <p>Classes will begin with a list of activities, then concepts that we will use to carry out these activities.</p>
+        <p><b>File Standards and Code Organization: </b></p>
+        <ul>
+            <li>Frameworks follow specific standards.</li>
+            <li>.html files must be inside the templates folder.</li>
+            <li>CLEAN CODE and RELEVANT NAMES! NO COMMENTS.</li>
+            <li>ALL NAMES IN ENGLISH—no Portuguese for classes, variables, filenames, or files.</li>
+            <li>Use snake_case for variable names (Python convention), with no accents or special characters.</li>
+        </ul>
+
+        <p>✨ In this class we create the folders: templates, static and adjacent folders. Also, the app.py file - app.py is the main file we will use;</p>
+
+        <h4>CLASS 04 (10/30) --    </h4><h2>Creating A New Virtual Environment And Developing Code</h2>
+        <p>Always import Flask when creating a new virtual environment: <code>from flask import Flask</code></p>
+        <p><b>Key Concepts:</b></p>
+        <ul>
+            <li>Every web request works with RR (Request and Response).</li>
+            <li>The web environment operates reactively—it only acts when a request is made.</li>
+            <li>Flask allows the Python code to listen for incoming requests and respond accordingly.</li>
+            <li>First, the request reaches Flask, then, Python processes the request and returns a response.</li>
+        </ul>
+        <p>The first step is to create the Flask application.</p>
+        <p>The application variable can have any name, but it is commonly named app.py</p>
+        <p>To automatically updates the server on code changes: <code>app.run(debug=True)</code></p>
+        <p>To change the default port: <code>app.run(debug=True, port=XXXX)</code></p>
+        <p>To make the application available to everyone on the same network: <code>app.run(debug=True, port=XXXX, host='0.0.0.0')</code></p>
+        <p>For a web application to be reactive, it needs routes. Routes must be linked to a function that defines the response.</p>
+        <p>This is how to create different web pages: </p>
+        <code>
+            @app.route('/contact')<br>
+            def contact():<br>
+            return 'This is the user page'<br>             
+        </code>
+        
+        <p>✨ What was done in this lesson: Created a new app.py, created multiple pages for the application, learned how to use HTML inside Python with Flask.</p>
+
+        <h3>Activities</h3>
 
         {% for activity in list01 %}
 
-        <a href="{{ activity.url }}" target="_blank">{{ activity.name }}</a><br>
+            <a href="{{ activity.url }}" target="_blank">{{ activity.name }}</a><br>
 
         {% endfor %}
 
-        <p>AULA 2 (00/00) --    </p><h2>Título da aula</h2>
-        <p>Texto</p>
-        <h3>Atividades</h3>
+        <p>📝 All these projects should be part of a single Flask project.</p>
+
+        <h4>CLASS 05 (11/06) --    </h4><h2>Passing Parameters In Flask</h2>
+        <p>Passing Parameters from Flask to an HTML Template: <code>render_template('index.html', name=name)</code></p>
+
+        <p>✨ What was done in this lesson: we had time in class to work on the activities, experimented with connecting our code to another student’s project.
+            
+        <h3>Activities</h3>
 
         {% for activity in list02 %}
 
-        <a href="{{ activity.url }}" target="_blank">{{ activity.name }}</a><br>
-
+            <a href="{{ activity.url }}" target="_blank">{{ activity.name }}</a><br>
+    
         {% endfor %}
 
-        <p>AULA 3 (00/00) --    </p><h2>Título da aula</h2>
-        <p>Texto</p>
-        <h3>Atividades</h3>
+        <h4>CLASS 06 (11/13) --    </h4><h2>Basic Rules For Development</h2>
+        <p>1st Do not trust the data coming from the request</p>
+        <ul>
+            <li>Validate all data; this validation depends on what is expected for each data type (e.g., text, number, etc.);</li>
+        </ul>
+        <p>2nd Ensure data integrity and consistency</p>
+        <ul>
+            <li>Ensure that what you received will be useful to calculate what is needed</li>
+            <li>Store it so it can be recovered if necessary;</li>
+            <li>We use persistent storage to preserve this data because persistence ensures durability and reliability;</li>
+        </ul>
+        <p>3rd Work either asynchronously or synchronously</p>
+        <ul>
+            <li>If synchronous, you must return the response in a timely manner;</li>
+            <li>In web development, synchronous methods are usually used;</li>
+        </ul>
+        <p>4th Handle exceptions</p>
+        <ul>
+            <li>Do not let the backend crash;</li>
+        </ul>
+        <p><b>NOTE: </b>In Python, we validate things through selection structures (what we know as conditional structures, but we cannot call them conditionals because these structures are used for selection purposes).</p>
+        <p>Validate the data, handle exceptions, and then persist it in database systems.</p>
+        <p>We will use SQLite</p>
+        <p>If nothing is specified in the URL bar, it defaults to GET</p>
+
+        <h3>Activities</h3>
 
         {% for activity in list03 %}
 
-        <a href="{{ activity.url }}" target="_blank">{{ activity.name }}</a><br>
-
+            <a href="{{ activity.url }}" target="_blank">{{ activity.name }}</a><br>
+    
         {% endfor %}
 
-        <p>AULA 4 (00/00) --    </p><h2>Título da aula</h2>
-        <p>Texto</p>
-        <h3>Atividades</h3>
+        <h4>CLASS 07 (11/20) --    </h4><h2>Activity Development And Final Project: </h2>
+        <p>✨ What was done in this lesson: we had time to develop the activities in class. </p>
 
+        <h4>CLASS 08 (11/27) --    </h4><h2>Final Project Prototype Presentation: </h2>
+        <p>📝 Three groups presented prototypes and objectives for the final project.</p>
+
+        <h4>CLASS 09 (12/04) --    </h4><h2>Activity Development And Final Project: </h2>
+        <p>✨ What was done in this lesson: we had time to develop the activities in class. </p>
+        
+        <h4>CLASS 10 (12/11) --    </h4><h2>Exam Distribution Decision + Orchestra Appreciation On Campus: </h2>
+        <p>✨ What was done in this lesson: we decided how the exam distribution would work and were encouraged by the professor to appreciate the orchestra performing on campus. </p>
+        
+        <h4>CLASS 11 (12/18) --    </h4><h2>Activities To Practice Before The Exam: </h2>
+        
+        <h3>Activities</h3>
+        
         {% for activity in list04 %}
 
-        <a href="{{ activity.url }}" target="_blank">{{ activity.name }}</a><br>
+            <a href="{{ activity.url }}" target="_blank">{{ activity.name }}</a><br>
 
         {% endfor %}
+        
+        <h4>CLASS 12, 13, AND 14 (01/08, 01/15, 01/22) --    </h4><h2>Practical Exam Application: </h2>
+        <p>✨ What was done in this lesson: Professor Alex divided the class into two groups to take the exam. The first group took the exam on 01/08, and the second group took the exam on 01/27 due to a technical issue on 01/15.</p>
+        
+        <h4>CLASS 15 (01/29) --    </h4><h2>Exam Feedback: </h2>
+        <p>✨ What was done in this lesson: Professor Alex gave the grades for the exam to all the students who took it and were present in class.</p>
+        
+
+
 
 
     </section>
@@ -75,6 +222,9 @@
         <p>Texto</p>
     </section>
     
-    
+
+
+
+
 </body>
 </html>
