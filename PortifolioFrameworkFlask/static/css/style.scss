@@ -1,0 +1,78 @@
+$font-stack: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+$primary-color: #29272A;
+$second-color: #2C2A32;
+$third-color: #159656;
+$font-color: #FAFAFA;
+
+*{
+    font-family: $font-stack;
+    background-color: $second-color;
+    color: $font-color;
+    margin: 0;
+    padding: 0; 
+    box-sizing: border-box;
+    text-decoration: none; 
+    //display: flex;
+}
+
+header{
+    nav{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    
+        .left-side-nav{
+            background-color: $third-color;
+            width: 550px;
+            height: 60px;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+
+            a{
+                background-color: $third-color;
+                font-size: 23px;
+            }
+        }
+
+        .right-side-nav{
+            width: 980px;
+            height: 60px;
+            background-color: $primary-color;
+            padding: 17px 20px;
+            display: flex;
+            padding-left: 550px;
+
+            a{
+                gap: 15px;
+                margin-left: 30px;
+                background-color: $primary-color;
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+body{
+    #home{
+        height: 650px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        h1{
+            //background-color: $third-color;
+            //height: 650px;
+            width: 550px;
+            padding: 20px;
+            font-size: 50px;
+            text-align: center;
+        }
+        p{
+            width: 980px;
+        }
+    }
+    h1{
+        font-size: 35px;
+    }
+}
+
