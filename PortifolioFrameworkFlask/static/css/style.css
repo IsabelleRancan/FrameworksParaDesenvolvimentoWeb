@@ -237,6 +237,69 @@ body #contact .icons a img {
 body #contact .icons a:hover img {
   transform: scale(1.1);
 }
+body .form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+body .form form {
+  width: 100%;
+  max-width: 500px;
+  background-color: #29272A;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+body .form form label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #FAFAFA;
+  background-color: #29272A;
+}
+body .form form input, body .form form select, body .form form textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #2C2A32;
+  background-color: #29272A;
+  border-radius: 5px;
+  background-color: #363337;
+  color: #FAFAFA;
+  transition: border 0.3s ease;
+}
+body .form form input:focus, body .form form select:focus, body .form form textarea:focus {
+  outline: none;
+  border-color: #159656;
+  box-shadow: 0 0 5px rgba(21, 150, 86, 0.5);
+}
+body .form form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+body .form form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+body .form form button {
+  padding: 10px 15px;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  background-color: #159656;
+  color: #FAFAFA;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+body .form form button:hover {
+  background-color: #0f693c;
+}
 
 /* Media Queries for Responsiveness */
 @media screen and (max-width: 1024px) {

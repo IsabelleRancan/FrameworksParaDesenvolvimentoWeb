@@ -3,17 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../static/css/style.css">
+    <link rel= "icon" href="../../static/img/app/sparkles.png">
     <title>Mini Blog</title>
 </head>
 <body>
 
-    <h1>Mini Blog - New Post</h1>
+    <div class="form">
+        <h1>Mini Blog - New Post</h1>
 
-    <form method="POST" action="/activity/list04/ex01/new_post"">
-        <label for="text">Text:</label><br>
-        <input type="text" name="text" id="text" required><br><br>
-        <button type="submit" >Send</button>
-    </form>
-    <a href="/activity/list04/ex01">Posts</a>
+        <form method="POST" action="/activity/list04/ex01/new_post"">
+            <label for="text">Text:</label><br>
+            <input type="text" name="text" id="text" required><br><br>
+            <button type="submit" >Send</button>
+        </form>
+        <a href="/activity/list04/ex01">Posts</a>
+    </div>
 </body>
 </html>
