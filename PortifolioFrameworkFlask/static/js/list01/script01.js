@@ -2,7 +2,7 @@ const canvas = document.getElementById('myCanvas');
 const ctx = canvas.getContext('2d');
 
 const img = new Image();
-img.src = '../../img/app/car.png';  
+img.src = '/static/img/app/car.png';  
 
 let imgX = 250;
 let imgY = 250;
