@@ -24,6 +24,27 @@ a {
     }
 }
 
+/* Barra de rolagem */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* Trilha */
+::-webkit-scrollbar-track {
+    background-color: $second-color;
+}
+
+/* Polegar */
+::-webkit-scrollbar-thumb {
+    background-color: $third-color;
+    border-radius: 10px;
+}
+
+/* Polegar no hover */
+::-webkit-scrollbar-thumb:hover {
+    background-color: #1f7f4e;
+}
+
 body {
     overflow-x: hidden; /* Impede a barra de rolagem horizontal */
     overflow-y: auto;
@@ -359,5 +380,77 @@ body {
 
     p {
         font-size: 16px;
+    }
+}
+
+
+.table {
+    display: block;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+    div {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 10px;
+        padding: 10px 0;
+        text-align: left;
+
+        & > div {
+            font-size: 16px;
+            font-weight: 500;
+            padding: 8px;
+            //border-bottom: 1px solid $second-color;
+        }
+
+        & > div:first-child {
+            font-weight: 700;
+        }
+    }
+
+    #table-body {
+        display: block;
+        height: 100%; /* Ajuste a altura conforme necessário */
+        overflow-y: auto;
+    }
+
+    /* Estilo das linhas de dados */
+    .table-row {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 10px;
+        padding: 10px 0;
+        //border-bottom: 1px solid $second-color;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: $second-color;
+        }
+
+        div {
+            font-size: 14px;
+            padding: 8px;
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+
+            button {
+                background-color: $third-color;
+                color: $font-color;
+                padding: 6px 12px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+
+                &:hover {
+                    background-color: darken($third-color, 10%);
+                }
+            }
+        }
     }
 }
