@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: #2C2A32;
@@ -17,9 +18,13 @@ a:hover {
   color: #0f693c;
 }
 
+body {
+  overflow-x: hidden; /* Impede a barra de rolagem horizontal */
+}
+
 header nav {
   display: grid;
-  grid-template-columns: 550px auto;
+  grid-template-columns: 600px auto; /* Definindo o tamanho fixo para a área de navegação */
   align-items: center;
 }
 header nav .left-side-nav {
@@ -48,45 +53,52 @@ header nav .right-side-nav a {
 }
 
 body #home {
-  height: 640px;
-  display: grid;
-  grid-template-columns: 550px auto;
+  height: 100vh; /* Ocupa toda a altura da tela */
+  display: flex;
+  justify-content: center;
   align-items: center;
+  padding: 20px;
+  width: 100%; /* Garante que ocupe toda a largura da tela */
+}
+body #home .left, body #home .right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 body #home .left {
   background-color: #159656;
-  display: flex;
-  height: 100%;
   padding: 20px;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  flex: 1;
+  justify-content: flex-start;
+  text-align: left;
+  max-width: 600px; /* Definindo o tamanho fixo para a área de título */
 }
 body #home .left h1 {
-  background-color: #159656;
   font-size: 50px;
+  background-color: #159656;
 }
 body #home .right {
   background-color: #29272A;
-  display: flex;
-  height: 100%;
   padding: 20px;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  flex: 1;
+  text-align: left;
+  max-width: 600px; /* Definindo o tamanho fixo para a área de texto */
 }
 body #home .right p {
   background-color: #29272A;
   font-size: 20px;
-  width: 550px;
+  width: 100%;
+  max-width: 600px;
+  text-align: left;
 }
 body #flask {
-  height: 700px;
+  height: 100vh; /* Ocupa toda a altura da tela */
   padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: center; /* Centraliza verticalmente */
+  align-items: center; /* Centraliza horizontalmente */
   text-align: center;
 }
 body #flask h1 {
@@ -139,12 +151,12 @@ body #ClassCalendar ol, body #ClassCalendar ul, body #ClassCalendar a {
 }
 body #project {
   background-color: #29272A;
-  height: 700px;
+  height: 100vh; /* Ocupa toda a altura da tela */
   padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: center; /* Centraliza verticalmente */
+  align-items: center; /* Centraliza horizontalmente */
   text-align: center;
 }
 body #project h1 {
@@ -160,9 +172,11 @@ body #project p, body #project a {
 body #contact {
   background-color: #159656;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   height: 50px;
+  padding: 0 20px;
 }
 body #contact h1 {
   font-size: 25px;
@@ -187,4 +201,77 @@ body #contact .icons a img {
 }
 body #contact .icons a:hover img {
   transform: scale(1.1);
+}
+
+/* Media Queries for Responsiveness */
+@media screen and (max-width: 1024px) {
+  header nav {
+    grid-template-columns: 1fr; /* Single column for smaller screens */
+  }
+  #home {
+    height: 100vh; /* Manter altura de tela cheia */
+    flex-direction: column; /* Alinha os itens verticalmente em telas pequenas */
+    padding: 20px;
+  }
+  .left, .right {
+    padding: 15px;
+    text-align: left;
+    width: 100%;
+    max-width: 100%;
+  }
+  .left h1 {
+    font-size: 40px;
+  }
+  .right p {
+    font-size: 18px;
+    width: auto;
+  }
+  #ClassCalendar {
+    grid-template-columns: 1fr; /* Single column layout */
+  }
+  #flask, #project {
+    height: 100vh;
+    padding: 20px;
+  }
+  #contact {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+    text-align: center;
+  }
+  .icons {
+    gap: 1rem;
+    justify-content: center;
+  }
+  .icons a {
+    width: 25px;
+    height: 25px;
+  }
+}
+@media screen and (max-width: 768px) {
+  header nav {
+    grid-template-columns: 1fr; /* One column for nav */
+  }
+  #home {
+    flex-direction: column; /* One column layout */
+    height: 100vh; /* Ocupa toda a altura da tela */
+  }
+  #contact {
+    flex-direction: column;
+    height: auto;
+    text-align: center;
+  }
+  .icons {
+    gap: 0.5rem;
+  }
+  .icons a {
+    width: 30px;
+    height: 30px;
+  }
+  h1, h2, h3 {
+    font-size: 20px; /* Smaller fonts */
+  }
+  p {
+    font-size: 16px;
+  }
 }/*# sourceMappingURL=style.css.map */
