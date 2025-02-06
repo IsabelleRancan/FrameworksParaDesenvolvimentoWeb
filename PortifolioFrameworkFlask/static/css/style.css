@@ -20,12 +20,23 @@ a:hover {
 
 body {
   overflow-x: hidden; /* Impede a barra de rolagem horizontal */
+  overflow-y: auto;
 }
 
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #29272A;
+}
 header nav {
   display: grid;
-  grid-template-columns: 600px auto; /* Definindo o tamanho fixo para a área de navegação */
+  grid-template-columns: 40% 60%;
   align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #29272A;
 }
 header nav .left-side-nav {
   background-color: #159656;
@@ -54,25 +65,21 @@ header nav .right-side-nav a {
 
 body #home {
   height: 100vh; /* Ocupa toda a altura da tela */
-  display: flex;
+  display: grid;
+  grid-template-columns: 40% 60%;
   justify-content: center;
   align-items: center;
-  padding: 20px;
-  width: 100%; /* Garante que ocupe toda a largura da tela */
-}
-body #home .left, body #home .right {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  width: 100%;
 }
 body #home .left {
   background-color: #159656;
+  height: 100%;
   padding: 20px;
-  flex: 1;
-  justify-content: flex-start;
-  text-align: left;
-  max-width: 600px; /* Definindo o tamanho fixo para a área de título */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  grid-column: 1; /* Fica na primeira coluna */
 }
 body #home .left h1 {
   font-size: 50px;
@@ -80,17 +87,17 @@ body #home .left h1 {
 }
 body #home .right {
   background-color: #29272A;
+  height: 100%;
   padding: 20px;
-  flex: 1;
-  text-align: left;
-  max-width: 600px; /* Definindo o tamanho fixo para a área de texto */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  grid-column: 2; /* Fica na segunda coluna */
 }
 body #home .right p {
   background-color: #29272A;
   font-size: 20px;
-  width: 100%;
-  max-width: 600px;
-  text-align: left;
+  text-align: center;
 }
 body #flask {
   height: 100vh; /* Ocupa toda a altura da tela */
@@ -113,6 +120,7 @@ body #ClassCalendar {
   display: grid;
   grid-template-columns: 20% 20% 60%;
   align-items: center;
+  padding-top: 100px;
   padding-left: 20px;
   padding-right: 20px;
 }
@@ -143,6 +151,12 @@ body #ClassCalendar > *:not(h4, h1, h2):not(.decorative-line) {
 }
 body #ClassCalendar h2 {
   font-size: 26px;
+}
+body #ClassCalendar code {
+  display: block;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
 }
 body #ClassCalendar ol, body #ClassCalendar ul, body #ClassCalendar a {
   list-style-position: inside;
@@ -179,7 +193,7 @@ body #contact {
   padding: 0 20px;
 }
 body #contact h1 {
-  font-size: 25px;
+  font-size: 20px;
   background-color: #159656;
 }
 body #contact .icons {
@@ -209,15 +223,14 @@ body #contact .icons a:hover img {
     grid-template-columns: 1fr; /* Single column for smaller screens */
   }
   #home {
-    height: 100vh; /* Manter altura de tela cheia */
-    flex-direction: column; /* Alinha os itens verticalmente em telas pequenas */
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
   .left, .right {
-    padding: 15px;
-    text-align: left;
     width: 100%;
-    max-width: 100%;
+    text-align: center;
   }
   .left h1 {
     font-size: 40px;
@@ -253,8 +266,24 @@ body #contact .icons a:hover img {
     grid-template-columns: 1fr; /* One column for nav */
   }
   #home {
-    flex-direction: column; /* One column layout */
-    height: 100vh; /* Ocupa toda a altura da tela */
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: auto; /* Remove a restrição de 100vh */
+  }
+  #home .left, #home .right {
+    width: 100%;
+    text-align: center;
+    height: auto; /* Garante que o conteúdo não fique esticado */
+    padding: 20px 10px;
+  }
+  #home .left h1 {
+    font-size: 40px; /* Ajusta o tamanho do texto */
+  }
+  #home .right p {
+    font-size: 18px;
   }
   #contact {
     flex-direction: column;
