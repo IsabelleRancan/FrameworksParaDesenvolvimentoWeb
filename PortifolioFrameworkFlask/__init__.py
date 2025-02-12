@@ -10,10 +10,10 @@ import os
 
 app = Flask(__name__)
 app.secret_key = "840d5791054e889b8ab0cdf7b14190ea"
-app.config["UPLOAD_PICTURES"] = "/static/img/upload_pictures"
+app.config["UPLOAD_FOLDER"] = "/static/img/upload_pictures"
 
-if not os.path.exists(app.config["UPLOAD_PICTURES"]):
-    os.makedirs(app.config["UPLOAD_PICTURES"])
+if not os.path.exists(app.config["UPLOAD_FOLDER"]):
+    os.makedirs(app.config["UPLOAD_FOLDER"])
 
 def generate_html_if_needed():
     base_path = os.path.dirname(os.path.abspath(__file__))
