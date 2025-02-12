@@ -15,7 +15,7 @@ def save_file(file):
     if file and allowed_files(file.filename):
         timestamp = datetime.now().strftime("%y%m%d_%H%M%S")
         filename = f"{timestamp}_{file.filename}"
-        filepath = os.path.join(current_app.config["UPLOAD_FOLDER"], filename)
+        filepath = os.path.join(current_app.config["UPLOAD_PICTURES"], filename)
         file.save(filepath)
         return filepath
     return None 
