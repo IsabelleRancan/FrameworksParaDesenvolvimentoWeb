@@ -2,8 +2,11 @@ import os
 from datetime import datetime 
 from flask import current_app 
 
-UPLOAD_PICTURES = "/static/img/upload_pictures"
+UPLOAD_PICTURES = os.path.join(os.getcwd(), 'static', 'uploads')
 ALLOWED_EXTENSIONS = {"png", "jpg", "jpeg", "gif"}
+
+if not os.path.exists(UPLOAD_PICTURES):
+    os.makedirs(UPLOAD_PICTURES)
 
 def allowed_files(filename):
     return "." in filename and filename.rsplit(".", 1)[1].lower() in ALLOWED_EXTENSIONS
