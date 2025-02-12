@@ -2,7 +2,7 @@ import os
 from datetime import datetime 
 from flask import current_app 
 
-UPLOAD_PICTURES = "/static/img/upload_pictures"
+UPLOAD_PICTURES = "/tmp/uploads"
 ALLOWED_EXTENSIONS = {"png", "jpg", "jpeg", "gif"}
 
 if not os.path.exists(UPLOAD_PICTURES):
