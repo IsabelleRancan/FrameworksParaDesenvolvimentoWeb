@@ -101,7 +101,9 @@ FrameworksParaDesenvolvimentoWeb/
 - **JSON Integration**: Conversion and processing of data.
 
 ## Deployment
-The project has been deployed on Vercel and can be accessed through the following link: < >
+Since this project includes code for generating directories and files, it could not be deployed. Try running it locally by following the "Installation and Setup" tutorial.
+
+For any questions, contact the developer.
 
 ---
 Developed by Isabelle Firmino Rancan
